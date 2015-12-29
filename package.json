@@ -7,6 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fserve": "gulp frontend-watch",
     "bserve": "gulp backend-watch",
+    "serve" : "gulp watch",
+    "push" : "git push origin master",
     "dev": "webpack-dev-server -d --hot --eval --progress --colors --port 2000"
   },
   "author": "",

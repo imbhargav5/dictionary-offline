@@ -62,3 +62,6 @@ gulp.task('backend-watch', function() {
   })
 });
 
+gulp.task('watch',['backend-watch','frontend-watch'],function(){
+  console.log('watching');
+});

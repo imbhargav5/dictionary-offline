@@ -4,7 +4,6 @@ var styles = {};
 
 if(myEnvIsBrowserFn()){
 	styles = require('./style.scss');	
-	console.log(styles);
 }
 
 
