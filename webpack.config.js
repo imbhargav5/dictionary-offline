@@ -4,7 +4,7 @@ var assetsPath = path.join(__dirname, 'static');
 
 
 const sassLoaders = [
-'style-loader',
+  'style-loader',
   'css-loader?modules',
   'postcss-loader',
   'sass-loader?sourceMap?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, '')

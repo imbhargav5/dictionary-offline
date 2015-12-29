@@ -4,6 +4,7 @@ import RouteHandler from './app/routes/index';
 
 let app = express();
 
+
 app.use('static',express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');

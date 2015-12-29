@@ -27,7 +27,7 @@ let RouteHandler = function(app){
 	});
 
 	app.get('/', function (req, res) {
-	  res.render('index',{name:'Bhargav',reactOutput : ReactDOMServer.renderToString(React.createFactory(Root)({}))});
+	  res.render('index',{reactOutput : ReactDOMServer.renderToString(React.createFactory(Root)({}))});
 	  //res.send("yo ");
 	});
 };
