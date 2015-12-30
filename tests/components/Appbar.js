@@ -15,7 +15,7 @@ describe('Appbar', function() {
 
   it('is an element', function() {
     var TestUtils = require('react-addons-test-utils');
-    var Appbar = require('../../lib/components/Appbar');
+    var Appbar = require('../../app/components/Appbar');
 
     assert.equal(true,TestUtils.isElementOfType(<Appbar/>,Appbar));
 
