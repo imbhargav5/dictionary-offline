@@ -1,6 +1,5 @@
 import React from 'react';
 import {myEnvIsBrowserFn} from '../../../utils/helpers';
-import SearchButton from '../Search';
 var styles = {};
 
 if(myEnvIsBrowserFn()){
@@ -8,15 +7,19 @@ if(myEnvIsBrowserFn()){
 }
 
 
-class Appbar extends React.Component{
+class Search extends React.Component{
 	constructor(props){
 		super(props);
+		this.state ={val:""};
+	}
+	handleChange(e){
+		this.setState({val:e.target.value});
 	}
 	render(){
 		return <div className={styles.root}>
-				Appbar <SearchButton/>
+				<input onChange={this.handleChange.bind(this)} type="search" name="search-box" value={this.state.val} />
 		</div>;
 	}
 };
 
-export default Appbar;
+export default Search;

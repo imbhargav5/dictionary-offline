@@ -1,6 +1,6 @@
 import React from 'react';
-import Appbar from './Appbar/index';
-import {myEnvIsBrowserFn} from '../../utils/helpers';
+import Appbar from '../../components/Appbar';
+import {myEnvIsBrowserFn} from '../../../utils/helpers';
 
 if(myEnvIsBrowserFn()){
 	require('./style.scss');
