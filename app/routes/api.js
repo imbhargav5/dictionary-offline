@@ -6,7 +6,7 @@ let ApiRouteHandler = function(app){
 	function getMontannaDefinition(word){
 		return new Promise((resolve,reject)=>{
 			unirest.get("https://montanaflynn-dictionary.p.mashape.com/define?word="+word)
-				.header("X-Mashape-Key", config.MONTANAFLYNN_KEY)
+				.header("X-Mashape-Key", config.API_KEY)
 				.header("Accept", "application/json")
 				.end(function (result) {
 				    resolve(result);
@@ -17,7 +17,7 @@ let ApiRouteHandler = function(app){
 	function getUrbanDefinition(word){
 		return new Promise((resolve,reject)=>{
 				unirest.get("https://mashape-community-urban-dictionary.p.mashape.com/define?term="+word)
-				.header("X-Mashape-Key", config.URBAN_KEY)
+				.header("X-Mashape-Key", config.API_KEY)
 				.header("Accept", "text/plain")
 				.end(function (result) {
 					console.log(result);

@@ -1,6 +1,5 @@
 import React from 'react';
 import {myEnvIsBrowserFn} from '../../../utils/helpers';
-import SearchButton from '../Search';
 var styles = {};
 
 if(myEnvIsBrowserFn()){
@@ -14,7 +13,7 @@ class Appbar extends React.Component{
 	}
 	render(){
 		return <div className={styles.root}>
-				Appbar <SearchButton/>
+				Appbar {this.props.children}
 		</div>;
 	}
 };
