@@ -1,19 +1,18 @@
 import React from 'react';
+import Appbar from './Appbar/index';
 import {myEnvIsBrowserFn} from '../../utils/helpers';
-var styles = {};
 
 if(myEnvIsBrowserFn()){
-	styles = require('./style.scss');	
+	require('./style.scss');
 }
 
-
-class Appbar extends React.Component{
+class Root extends React.Component{
 	constructor(props){
 		super(props);
 	}
 	render(){
-		return <div className={styles.root}>AppBar</div>;
+		return <div className="root"><Appbar/></div>;
 	}
 };
 
-export default Appbar;
+export default Root;

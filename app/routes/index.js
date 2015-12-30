@@ -2,7 +2,7 @@ import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 //import fetch from 'isomorphic-fetch';
-import Root from '../components/Root';
+import Root from '../client/components/Root';
 import ApiRouteHandler from './api';
 
 

@@ -3,7 +3,9 @@ import express from 'express';
 import RouteHandler from './app/routes/index';
 //import DebugMiddleware from './app/middleware/debug';
 
-let app = express();
+let app = express(), 
+	port = 3000;
+
 
 
 app.use('/static',express.static('static'));
@@ -13,7 +15,7 @@ app.set('views','./app/views');
 //DebugMiddleware(app);
 RouteHandler(app);
 
-var server = app.listen(3000, function () {
+var server = app.listen(port, function () {
   var host = server.address().address;
   var port = server.address().port;
 

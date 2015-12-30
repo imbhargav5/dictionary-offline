@@ -7,7 +7,7 @@
     "test": "npm run devtest",
     "devtest": "rm -rf coverage && istanbul cover _mocha -- --require babel-core/register tests/**/*.js",
     "serve": "NODE_ENV=development gulp watch",
-    "production" : "NODE_ENV=production gulp build && gulp production ",
+    "production": "NODE_ENV=production gulp build && gulp production ",
     "dist": "gulp build",
     "dev": "webpack-dev-server -d --hot --eval --progress --colors --port 2000"
   },
@@ -33,10 +33,12 @@
     "react-router": "^1.0.3",
     "redux": "^3.0.5",
     "redux-simple-router": "^1.0.2",
+    "serviceworker-loader": "^0.1.0",
     "unirest": "^0.4.2",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "whatwg-fetch": "^0.10.1"
+    "whatwg-fetch": "^0.10.1",
+    "worker-loader": "^0.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.3.17",
