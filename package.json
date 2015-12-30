@@ -8,7 +8,6 @@
     "devtest": "rm -rf coverage && istanbul cover _mocha -- --require babel-core/register tests/**/*.js",
     "serve": "NODE_ENV=development gulp watch",
     "production" : "NODE_ENV=production gulp production ",
-    "push": "git add . && git commit -m -- $1 && git push origin --  $2",
     "dist": "gulp build",
     "dev": "webpack-dev-server -d --hot --eval --progress --colors --port 2000"
   },
