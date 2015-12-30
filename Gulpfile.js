@@ -15,6 +15,7 @@ var nodemon = require('gulp-nodemon');
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var frontendConfig = require('./webpack.config.js');
+var frontendProductionConfig = require('./webpack.config.production.js');
 
 
 gulp.task('frontend-watch', function() {
@@ -38,14 +39,11 @@ gulp.task('frontend-watch', function() {
 
 gulp.task('backend-watch', function() {
   livereload.listen();
-
-  console.log('starting nodemon');
-
-
+ 
   nodemon({
     script: 'index.js',
     stdout: true,
-    exec : 'babel-node --'
+    exec : 'babel-node --presets es2015,stage-3 --'
   }).on('readable', function() {
 
     this.stdout.on('data', function(chunk) {
@@ -62,6 +60,31 @@ gulp.task('backend-watch', function() {
   })
 });
 
+gulp.task('build',function(){
+    webpack(frontendProductionConfig);
+});
+
+gulp.task('backend-production',['build'], function() {
+ 
+  nodemon({
+    script: 'index.js',
+    stdout: true,
+    exec : 'babel-node --presets es2015,stage-3 --'
+  }).on('readable', function() {
+
+    this.stdout.on('data', function(chunk) {
+      process.stdout.write(chunk)
+    });
+  })
+});
+
+
 gulp.task('watch',['backend-watch','frontend-watch'],function(){
   console.log('watching');
 });
+
+
+
+gulp.task('production',['backend-production'],function(){
+
+  })

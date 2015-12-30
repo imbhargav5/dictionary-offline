@@ -1,3 +1,4 @@
+require("babel-polyfill");
 import express from 'express';
 import RouteHandler from './app/routes/index';
 //import DebugMiddleware from './app/middleware/debug';
@@ -5,7 +6,7 @@ import RouteHandler from './app/routes/index';
 let app = express();
 
 
-app.use('static',express.static('static'));
+app.use('/static',express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');
 

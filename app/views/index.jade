@@ -1,7 +1,13 @@
 html
-  head
-  body
-    #app
-      div!=reactOutput
-      
-  include scripts.html
+	head
+		if env != 'development'
+			link(href="/static/style.css", rel="stylesheet", type="text/css")
+	body
+		#app
+			div!=reactOutput
+			if env == 'development'
+				script(src="http://localhost:2000/assets/vendor.js")
+				script(src="http://localhost:2000/assets/bundle.js")
+			else
+				script(src="static/vendor.js")
+				script(src="static/bundle.js")
