@@ -61,10 +61,20 @@ gulp.task('backend-watch', function() {
 });
 
 gulp.task('build',function(){
-    webpack(frontendProductionConfig);
+   var compiler = webpack(frontendProductionConfig);
+   compiler.run((err,stats)=>{
+        if(err)
+            return handleFatalError(err);
+        var jsonStats = stats.toJson({colors:true});
+        if(jsonStats.errors.length > 0)
+            return console.warn(jsonStats.errors);
+        if(jsonStats.warnings.length > 0)
+            console.warn(jsonStats.warnings);
+         console.log(stats.toString({colors:true}));
+        });
 });
 
-gulp.task('backend-production',['build'], function() {
+gulp.task('backend-production', function() {
  
   nodemon({
     script: 'index.js',

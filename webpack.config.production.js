@@ -3,7 +3,6 @@ var webpack = require('webpack');
 var assetsPath = path.join(__dirname, 'static');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-
 const sassLoaders = [
   'style-loader',
   'css-loader?modules',
@@ -12,7 +11,7 @@ const sassLoaders = [
 ];
 module.exports = {
     entry :  {
-        bundle : ['./app/client/main.js'],
+        bundle : './app/client/main.js',
         vendor :['react','lodash','react-dom']
     },
     output: {
