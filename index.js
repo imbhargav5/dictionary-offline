@@ -7,8 +7,13 @@ let app = express(),
 	port = 3000;
 
 
+console.log(process.env.NODE_ENV);
 
-app.use('/static',express.static('static'));
+port = process.env.NODE_ENV === 'production' ? 8080 : 3000;
+
+
+
+app.use(express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');
 

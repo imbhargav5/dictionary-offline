@@ -7,8 +7,7 @@ class DictionaryDatabase{
 
 	addWord(payload){
 		this.db.put({
-			_id : Date.now().toString(), 
-			word : payload.word,
+			_id : payload.word, 
 			definition : payload.definition 
 		},function(err,response){
 			if(!err){
@@ -18,6 +17,14 @@ class DictionaryDatabase{
 			}
 		});
 	};
+
+	get(word){
+		return this.db.get(word);
+	}
+
+	allWords(){
+		return this.db.allDocs();
+	}
 	
 
 

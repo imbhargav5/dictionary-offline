@@ -1,35 +1,24 @@
 import { combineReducers } from 'redux';
-import {RECEIVE_DEFINITION,REQUEST_DEFINITION} from '../actions/search';
-import {isClient} from '../../utils/helpers';
-
-var MyWorker = isClient() ?  require("worker?inline=true!../worker/index.js") : function(){};
-
-var myWorker = new MyWorker();
+import {RECEIVE_DEFINITION,REQUEST_DEFINITION, REQUEST_CACHED_WORDS, RECEIVE_CACHED_WORDS} from '../actions/search';
 
 
-function addToPouch(obj){
-  if(isClient()){
-      var payload = {
-         action : 'add',
-         word : obj.word,
-         definition : obj.definition
-      };
-      myWorker.postMessage(payload);
-  }    
+function wordsReducer(state={words : [], loading : false},action){
+   switch(action.type){
+      case RECEIVE_CACHED_WORDS :
+       return Object.assign({},state,{words:action.words,loading:false});
+      case REQUEST_CACHED_WORDS :
+        return Object.assign({},state,{words :[],loading : true});
+      default:
+        return state;
+   };
 }
-
 
 
 
 function searchReducer(state={ definition : {} , searchWord : '',loading:false},action){
    switch(action.type){
       case RECEIVE_DEFINITION :
-
-        if(isClient()){
-          addToPouch({word : state.searchWord, definition : state.definition});  
-        }
-
-        return Object.assign({},state,{definition:action.definition,searchWord : action.searchWord,loading:false});
+       return Object.assign({},state,{definition:action.definition,searchWord : action.searchWord,loading:false});
       case REQUEST_DEFINITION :
         return Object.assign({},state,{definition:{},searchWord : action.searchWord,loading : true});
       default:
@@ -38,7 +27,8 @@ function searchReducer(state={ definition : {} , searchWord : '',loading:false},
 }
 
 const rootReducer = combineReducers({
-    searchReducer
+    searchReducer,
+    wordsReducer
 });
 
 export default rootReducer;

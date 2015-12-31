@@ -7,7 +7,7 @@
     "test": "npm run devtest",
     "devtest": "rm -rf coverage && istanbul cover _mocha -- --require babel-core/register tests/**/*.js",
     "serve": "NODE_ENV=development gulp watch",
-    "production": "NODE_ENV=production gulp build && gulp production ",
+    "production": "gulp build && NODE_ENV=production gulp production ",
     "dist": "gulp build",
     "dev": "webpack-dev-server -d --hot --eval --progress --colors --port 2000"
   },
@@ -35,6 +35,7 @@
     "redux-logger": "^2.3.1",
     "redux-simple-router": "^1.0.2",
     "redux-thunk": "^1.0.3",
+    "serviceworker-cache-polyfill": "^3.0.0",
     "serviceworker-loader": "^0.1.0",
     "unirest": "^0.4.2",
     "webpack": "^1.12.9",

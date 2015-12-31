@@ -12,6 +12,7 @@ const sassLoaders = [
 module.exports = {
     entry :  {
         bundle : './app/client/main.js',
+        sw :'./app/client/serviceworker/index.js',
         vendor :['react','lodash','react-dom']
     },
     output: {
@@ -27,7 +28,7 @@ module.exports = {
                 include: [path.resolve(__dirname, "app")]
            }, {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract(...sassLoaders)
+                loader: ExtractTextPlugin.extract('style','css?modules!postcss!sass')
             }
         ]
     },
