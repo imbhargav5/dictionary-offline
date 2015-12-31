@@ -1,8 +1,8 @@
 import React from 'react';
-import {myEnvIsBrowserFn} from '../../../utils/helpers';
+import {isClient} from '../../../utils/helpers';
 var styles = {};
 
-if(myEnvIsBrowserFn()){
+if(isClient()){
 	styles = require('./style.scss');	
 }
 
@@ -26,8 +26,7 @@ class Search extends React.Component{
 	render(){
 		return <div className={styles.root}>
 				<form onSubmit={this._onSubmit.bind(this)}>
-				<input onChange={this._onChange.bind(this)} ref="searchWord" type="search" name="search-box" value={this.state.val} />
-				<button type="submit" > Go </button>
+				<input className={styles.input} placeholder="Search" onChange={this._onChange.bind(this)} ref="searchWord" type="search" name="search-box" value={this.state.val} />
 				</form>
 		</div>;
 	}

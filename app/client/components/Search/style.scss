@@ -1,5 +1,14 @@
 .root{
 	box-sizing:border-box;
-	float:right;
-	padding-right:10px;
+	padding:10px;
+	background : #3f51b5;
+}
+.input{
+	font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    outline: none;
 }

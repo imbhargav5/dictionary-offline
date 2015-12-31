@@ -1,9 +1,9 @@
 import React from 'react';
-import {myEnvIsBrowserFn} from '../../../utils/helpers';
+import {isClient} from '../../../utils/helpers';
 import Montanaflynn from './montanaflynn';
 var styles = {};
 
-if(myEnvIsBrowserFn()){
+if(isClient()){
 	styles = require('./style.scss');	
 }
 
@@ -13,12 +13,20 @@ class Card extends React.Component{
 		super(props);
 	}
 	render(){
-		let {definition, searchWord} = this.props;
-
-		return <div className={styles.root}>
+		let {definition, searchWord,loading} = this.props, 
+			view = null;
+		if(typeof searchWord === 'undefined' || searchWord.length ===0){
+			return <h1> Enter a word </h1>;
+		}
+		if(loading){
+			view = <h1>Fetching Defintion for {searchWord} </h1>
+		}else{
+			view = <div className={styles.root}>
 					<h1>Search Word - {searchWord} </h1>
 					<Montanaflynn {...definition.montanaflynn} /> 
-			  </div>;
+			  </div>
+		}
+		return view;
 	}
 };
 

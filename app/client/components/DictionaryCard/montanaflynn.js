@@ -1,8 +1,8 @@
 import React from 'react';
-import {myEnvIsBrowserFn} from '../../../utils/helpers';
+import {isClient} from '../../../utils/helpers';
 var styles = {};
 
-if(myEnvIsBrowserFn()){
+if(isClient()){
 	styles = require('./style.scss');	
 }
 
