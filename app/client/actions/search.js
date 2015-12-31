@@ -5,16 +5,18 @@ export const REQUEST_DEFINITION = 'REQUEST_DEFINITION';
 export const RECEIVE_DEFINITION = 'RECEIVE_DEFINITION';
 const DEFINITION_API = rest_apis.definition;
 
-function requestDefinition() {
+function requestDefinition(word) {
 	return {
-		type : REQUEST_DEFINITION
+		type : REQUEST_DEFINITION,
+		searchWord : word
 	};
 }
 
-function receiveDefinition(result) {
+function receiveDefinition(word,result) {
 	return {
-		type : REQUEST_DEFINITION,
-		definition : result
+		type : RECEIVE_DEFINITION,
+		definition : result,
+		searchWord : word
 	};
 }
 
@@ -23,6 +25,6 @@ export function fetchDefinition(word){
     dispatch(requestDefinition(word));
     return fetch(DEFINITION_API+word)      
         .then(response =>  response.json())
-            .then(result => dispatch(receiveDefinition( result || {})));
+            .then(result => dispatch(receiveDefinition( word ,result || {})));
   	};
 }

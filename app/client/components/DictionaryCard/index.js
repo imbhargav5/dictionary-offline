@@ -1,5 +1,6 @@
 import React from 'react';
 import {myEnvIsBrowserFn} from '../../../utils/helpers';
+import Montanaflynn from './montanaflynn';
 var styles = {};
 
 if(myEnvIsBrowserFn()){
@@ -7,15 +8,18 @@ if(myEnvIsBrowserFn()){
 }
 
 
-class Appbar extends React.Component{
+class Card extends React.Component{
 	constructor(props){
 		super(props);
 	}
 	render(){
+		let {definition, searchWord} = this.props;
+
 		return <div className={styles.root}>
-				MontanaFlynn Dictionary Api {this.props.children}
-		</div>;
+					<h1>Search Word - {searchWord} </h1>
+					<Montanaflynn {...definition.montanaflynn} /> 
+			  </div>;
 	}
 };
 
-export default Appbar;
+export default Card;

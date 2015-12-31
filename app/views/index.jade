@@ -4,8 +4,8 @@ html
 			style
 				include ../../static/style.css
 	body
+		#shell
 		#app
-			div!=reactOutput
 			if env == 'development'
 				script(src="http://localhost:2000/assets/vendor.js")
 				script(src="http://localhost:2000/assets/bundle.js")

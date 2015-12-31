@@ -7,15 +7,15 @@ if(myEnvIsBrowserFn()){
 }
 
 
-class Appbar extends React.Component{
+class AppBody extends React.Component{
 	constructor(props){
 		super(props);
 	}
 	render(){
 		return <div className={styles.root}>
-				MontanaFlynn Dictionary Api {this.props.children}
+			 {this.props.children}
 		</div>;
 	}
 };
 
-export default Appbar;
+export default AppBody;

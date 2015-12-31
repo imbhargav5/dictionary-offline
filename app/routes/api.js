@@ -9,23 +9,16 @@ let ApiRouteHandler = function(app){
 				.header("X-Mashape-Key", config.API_KEY)
 				.header("Accept", "application/json")
 				.end(function (result) {
-				    resolve(result);
+					let {statusCode,body} = result;
+				    resolve({
+				    	statusCode,
+				    	definition : (body || {}).definitions
+				    });
 				});
 		}); 
 	}
 
-	function getUrbanDefinition(word){
-		return new Promise((resolve,reject)=>{
-				unirest.get("https://mashape-community-urban-dictionary.p.mashape.com/define?term="+word)
-				.header("X-Mashape-Key", config.API_KEY)
-				.header("Accept", "text/plain")
-				.end(function (result) {
-					console.log(result);
-				  	resolve(result);
-				});
-		}); 
-	}
-
+	
 	/**
 	 * Api to fetch data from montanaflynn dictionary
 	 */
@@ -37,24 +30,16 @@ let ApiRouteHandler = function(app){
 	});
 
 	/**
-	 * Api to fetch data from urban dictionary
-	 */
-
-	app.get('/api/v1/dictionary/urban/define/:word',async function(req,res){
-			let result = await getUrbanDefinition(req.params.word);
-			res.send(result);
-	});
-
-	/**
 	 * Api to fetch definition
+	 * Separate api - so that we can add more dictionaries later at some point
 	 * @param  {Request} req 
 	 * @param  {Response} res
 	 * @return {null} 
 	 */
 	app.get('/api/v1/define/:word',async function(req,res){
+
 			let result = {};
 			result.montanaflynn = await getMontannaDefinition(req.params.word);
-			result.urban = await getUrbanDefinition(req.params.word);
 			res.send(result);
 	});
 };
