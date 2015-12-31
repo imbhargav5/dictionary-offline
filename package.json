@@ -7,6 +7,7 @@
     "test": "npm run devtest",
     "devtest": "rm -rf coverage && istanbul cover _mocha -- --require babel-core/register tests/**/*.js",
     "serve": "NODE_ENV=development gulp watch",
+    "staging": "gulp build && NODE_ENV=staging gulp production ",
     "production": "gulp build && NODE_ENV=production gulp production ",
     "dist": "gulp build",
     "dev": "webpack-dev-server -d --hot --eval --progress --colors --port 2000"

@@ -1,28 +1,38 @@
 require("babel-polyfill");
 import express from 'express';
 import RouteHandler from './app/routes/index';
+import http from 'http';
+import https from 'https';
+import fs from 'fs';
+import config from './app/config';
+
 //import DebugMiddleware from './app/middleware/debug';
 
-let app = express(), 
-	port = 3000;
-
+let app = express();
 
 console.log(process.env.NODE_ENV);
-
-port = process.env.NODE_ENV === 'production' ? 8080 : 3000;
-
-
 
 app.use(express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');
-
-//DebugMiddleware(app);
 RouteHandler(app);
 
-var server = app.listen(port, function () {
-  var host = server.address().address;
-  var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+
+
+
+
+
+//DebugMiddleware(app);
+
+if(process.env.NODE_ENV !=='production'){
+	
+	var httpServer = http.createServer(app);
+	httpServer.listen(3000);
+}else{
+	let credentials = {
+		cert : fs.readFileSync(config.SSL_CERT);
+	}
+	var httpsServer = https.createServer(credentials, app);
+	httpsServer.listen(80);
+}

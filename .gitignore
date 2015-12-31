@@ -2,3 +2,4 @@ node_modules
 lib
 /static
 /app/config
+dictionary-database
