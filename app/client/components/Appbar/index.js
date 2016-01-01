@@ -13,7 +13,7 @@ class Appbar extends React.Component{
 	}
 	render(){
 		return <div className={styles.root}>
-				MontanaFlynn Dictionary Api {this.props.children}
+				Offline MontanaFlynn Dictionary {this.props.children}
 		</div>;
 	}
 };
