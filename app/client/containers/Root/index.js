@@ -14,7 +14,6 @@ class Root extends React.Component{
 		super(props);
 	}
 	render(){
-
 		return  <Provider store={store}>
 		      	 <App/>
 		  </Provider>

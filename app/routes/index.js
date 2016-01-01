@@ -14,10 +14,8 @@ import ApiRouteHandler from './api';
 
 let RouteHandler = function(app){
 	
-	console.log("routes " +process.env.NODE_ENV);
-	ApiRouteHandler(app);
+	ApiRouteHandler(app);	
 	
-
 	app.get('/', function (req, res) {
 	  res.render('index',{
 	  	reactOutput : ReactDOMServer.renderToString(React.createFactory(Root)({})),

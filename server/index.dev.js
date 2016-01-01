@@ -14,10 +14,6 @@ let app = express();
 let config = require('../webpack.config.dev');
 let compiler = webpack(config)
 
-
-console.log(process.env.NODE_ENV);
-
-
 app.use(compress());
 app.use(express.static('static'));
 app.set('view engine','jade');
@@ -25,7 +21,6 @@ app.set('views','./app/views');
 
 
 RouteHandler(app);
-
 
 
 app.use(webpackDevMiddleware(compiler, {
@@ -39,4 +34,6 @@ app.use(webpackHotMiddleware(compiler, {
 
 var httpServer = http.createServer(app);
 httpServer.listen(3000);
-console.log(3000);
+
+
+console.log( process.env.NODE_ENV + " server running at " + 3000);
