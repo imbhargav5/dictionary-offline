@@ -21,13 +21,14 @@ app.use(compress());
 app.use(useragent.express());
 app.use(express.static('static'));
 app.use((req,res,next)=>{
-if(req.useragent.browser==='Chrome'){
+if(req.useragent.browser==='Chrome' && parseInt(req.useragent.version)>43){
 if(req.secure){
-    console.log("Secure within chrome ");
+     console.log(req.useragent.browser, req.useragent.version, parseInt(req.useragent.version)); 
+     console.log("Secure within chrome ");
      // OK, continue
     return next();
   }
- else{ 
+ else{
   console.log("insecure within chrome "+req.hostname,req.url);
   console.log("redirecting");
  res.redirect('https://'+req.hostname+req.url);
