@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
 import {fetchDefinition, fetchAllWords} from '../../actions/search';
 import Appbar from '../../components/Appbar';
 import AppBody from '../../components/Body';
