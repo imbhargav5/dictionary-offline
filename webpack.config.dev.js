@@ -47,7 +47,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("devstyle.css"),
     new CopyWebpackPlugin([{from:'assets'}])
-
   ]
 
 };

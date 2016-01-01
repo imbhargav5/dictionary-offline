@@ -42,7 +42,8 @@ module.exports = {
     plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor','vendor.js'),
     new ExtractTextPlugin("style.css"),
-    new CopyWebpackPlugin([{from:'assets'}])
+    new CopyWebpackPlugin([{from:'assets'}]),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 
 };

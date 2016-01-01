@@ -43,7 +43,8 @@ module.exports = {
     plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor','vendor.js'),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 
 };

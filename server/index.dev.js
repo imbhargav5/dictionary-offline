@@ -5,6 +5,8 @@ import fs from 'fs';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import compress from 'compression';
+
 
 //import DebugMiddleware from './app/middleware/debug';
 
@@ -16,7 +18,7 @@ let compiler = webpack(config)
 console.log(process.env.NODE_ENV);
 
 
-
+app.use(compress());
 app.use(express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');

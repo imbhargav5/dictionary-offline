@@ -4,13 +4,14 @@ import http from 'http';
 import https from 'https';
 import fs from 'fs';
 import config from '../app/config/index';
-
+import compress from 'compression';
 //import DebugMiddleware from './app/middleware/debug';
 
 let app = express();
 
 console.log(process.env.NODE_ENV);
 
+app.use(compress());
 app.use(express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');
