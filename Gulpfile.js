@@ -89,8 +89,13 @@ gulp.task('backend-production', function() {
   })
 });
 
-
+/**
 gulp.task('watch',['backend-watch','frontend-watch'],function(){
+  console.log('watching');
+});
+**/
+
+gulp.task('watch',['backend-watch'],function(){
   console.log('watching');
 });
 

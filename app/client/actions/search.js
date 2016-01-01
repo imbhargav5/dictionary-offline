@@ -11,8 +11,11 @@ export const RECEIVE_CACHED_WORDS = 'RECEIVE_CACHED_WORDS';
 const DEFINITION_API = rest_apis.definition;
 
 
-var db = new Database();
+var db;
+  if(isClient()){
 
+    db = new Database();
+  }
 
 
 

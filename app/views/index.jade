@@ -1,16 +1,23 @@
 doctype html
 html
-	head
-		meta(name='viewport', content='width=device-width, initial-scale=1.0')
-		if env != 'development'
-			style
-				include ../../static/style.css
-	body
-		#app
-			if env == 'development'
-				script(type="application/javascript" src="http://localhost:2000/assets/vendor.js")
-				script(type="application/javascript" src="http://localhost:2000/assets/bundle.js")
-			else
-				script(type="application/javascript" src="vendor.js")
-				script(type="application/javascript" src="bundle.js")
-				
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        if env == 'production'
+            link(href='/style.css', rel='stylesheet')
+
+        else if env == 'staging'
+            link(href='/style.css', rel='stylesheet')
+
+        else
+            link(href='/devstyle.css', rel='stylesheet')
+
+                
+    body
+        #app
+        if env == 'development'
+            script(type="application/javascript" src="http://localhost:3000/devvendor.js")
+            script(type="application/javascript" src="http://localhost:3000/devbundle.js")
+        else
+            script(type="application/javascript" src="vendor.js")
+            script(type="application/javascript" src="bundle.js")
+                

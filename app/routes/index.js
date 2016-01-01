@@ -14,7 +14,7 @@ import ApiRouteHandler from './api';
 
 let RouteHandler = function(app){
 	
-	console.log(process.env.NODE_ENV);
+	console.log("routes " +process.env.NODE_ENV);
 	ApiRouteHandler(app);
 	
 
