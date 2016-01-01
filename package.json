@@ -9,7 +9,7 @@
     "serve": "NODE_ENV=development gulp watch",
     "staging": "NODE_ENV=staging gulp production ",
     "production": "NODE_ENV=production gulp production ",
-    "dist": "gulp build"
+    "dist": "rm -rf static && gulp build"
   },
   "author": "",
   "license": "ISC",
