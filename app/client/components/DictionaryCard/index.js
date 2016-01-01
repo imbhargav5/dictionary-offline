@@ -1,5 +1,7 @@
 import React from 'react';
 import {isClient} from '../../../utils/helpers';
+
+const no_results = 'No definitions found';
 var styles = {};
 
 if(isClient()){
@@ -23,7 +25,7 @@ class MontanaFlynn extends React.Component{
 		
 		return <div className={styles.montana}>
 					<ul className={styles.montana__list}>
-						{definitionUI.length > 0 ? definitionUI : 'No definitions found'}
+						{definitionUI.length > 0 ? definitionUI : no_results}
 					</ul>
 			</div>;
 	}

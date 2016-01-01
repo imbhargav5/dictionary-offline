@@ -40,12 +40,22 @@ function getDefinition(word,dispatch){
      return db.get(word).then((result)=>{
      	dispatch(receiveDefinition( word ,result.definition || {}))
      }).catch((err)=>{
-     	return fetch(DEFINITION_API+word)      
+     	return fetch(DEFINITION_API+encodeURI(word))      
 	        .then(response =>  response.json())
 	            .then(result => {
-	            	addToPouch({word:word,definition:result});
-	            	dispatch(fetchAllWords());
-	            	dispatch(receiveDefinition( word ,result || {}));
+
+	            	if(result.montanaflynn && result.montanaflynn.definition.length >0 ){
+	            	    //Add to pouch only there is a definition
+	            	    addToPouch({word:word,definition:result});
+	            		dispatch(fetchAllWords());
+	            	}
+	            	
+	            	dispatch(receiveDefinition( word ,result));
+	            }).catch(err=>{
+	            	dispatch(receiveDefinition(word,{montanaflynn:{
+	            		definition : [],
+	            		statusCode : 500
+	            	}}));
 	            });
 	  });
    }else{
