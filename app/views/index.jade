@@ -1,17 +1,16 @@
+doctype html
 html
 	head
-                meta(http-equiv="content-type", content="#{contentType}; charset="UTF-8")
-
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		if env != 'development'
 			style
 				include ../../static/style.css
 	body
-		#shell
 		#app
 			if env == 'development'
-				script(src="http://localhost:2000/assets/vendor.js")
-				script(src="http://localhost:2000/assets/bundle.js")
+				script(type="application/javascript" src="http://localhost:2000/assets/vendor.js")
+				script(type="application/javascript" src="http://localhost:2000/assets/bundle.js")
 			else
-				script(src="vendor.js")
-				script(src="bundle.js")
+				script(type="application/javascript" src="vendor.js")
+				script(type="application/javascript" src="bundle.js")
 				

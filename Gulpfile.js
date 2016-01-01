@@ -24,6 +24,7 @@ gulp.task('frontend-watch', function() {
   new WebpackDevServer(webpack(frontendConfig), {
     publicPath: frontendConfig.output.publicPath,
     hot: true,
+    noInfo:true,
     stats: { colors: true, progress:true }
   }).listen(2000, 'localhost', function (err, result) {
     if(err) {
