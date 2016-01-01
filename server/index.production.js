@@ -15,19 +15,22 @@ app.use(compress());
 app.use(express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');
+app.all('*', ensureSecure);
+
 RouteHandler(app);
 
 // Redirect all HTTP traffic to HTTPS
 function ensureSecure(req, res, next){
+   console.log(req.hostname,req.url);
   if(req.headers["x-forwarded-proto"]){
     // OK, continue
     return next();
   };
   console.log(req.hostname,req.url);
   res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
+  next();
 };
 
-app.all('*', ensureSecure);
 
 var privateKey  = fs.readFileSync(config.SSL_KEY, 'utf8');
 var certificate = fs.readFileSync(config.SSL_CERT, 'utf8');
