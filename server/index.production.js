@@ -25,14 +25,14 @@ function ensureSecure(req, res, next){
   res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
 };
 
- app.all('*', ensureSecure);
+app.all('*', ensureSecure);
 
 var privateKey  = fs.readFileSync(config.SSL_KEY, 'utf8');
 var certificate = fs.readFileSync(config.SSL_CERT, 'utf8');
 
 var credentials = {key: privateKey, cert: certificate};
 var httpServer = http.createServer(app);
-httpServer.listen(80);
+httpServer.listen(3000);
 var httpsServer = https.createServer(credentials, app);
 httpsServer.listen(443);
 console.log(80,443);
