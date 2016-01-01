@@ -9,8 +9,7 @@
     "serve": "NODE_ENV=development gulp watch",
     "staging": "NODE_ENV=staging gulp production ",
     "production": "NODE_ENV=production gulp production ",
-    "dist": "gulp build",
-    "dev": "webpack-dev-server -d --hot --eval --progress --colors --port 2000"
+    "dist": "gulp build"
   },
   "author": "",
   "license": "ISC",
