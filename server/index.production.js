@@ -16,6 +16,16 @@ app.set('view engine','jade');
 app.set('views','./app/views');
 RouteHandler(app);
 
+// Redirect all HTTP traffic to HTTPS
+function ensureSecure(req, res, next){
+  if(req.secure){
+    // OK, continue
+    return next();
+  };
+  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
+};
+
+ app.all('*', ensureSecure);
 
 var privateKey  = fs.readFileSync(config.SSL_KEY, 'utf8');
 var certificate = fs.readFileSync(config.SSL_CERT, 'utf8');
