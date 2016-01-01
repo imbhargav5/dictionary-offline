@@ -15,7 +15,6 @@ app.use(compress());
 app.use(express.static('static'));
 app.set('view engine','jade');
 app.set('views','./app/views');
-app.all('*', ensureSecure);
 
 RouteHandler(app);
 
@@ -30,6 +29,8 @@ function ensureSecure(req, res, next){
   res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
   next();
 };
+app.all('*', ensureSecure);
+
 
 
 var privateKey  = fs.readFileSync(config.SSL_KEY, 'utf8');
