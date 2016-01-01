@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var assetsPath = path.join(__dirname, 'static');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const sassLoaders = [
   'style-loader',
@@ -45,7 +45,8 @@ module.exports = {
     plugins: [
     new webpack.optimize.CommonsChunkPlugin('devvendor','devvendor.js'),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("devstyle.css")
+    new ExtractTextPlugin("devstyle.css"),
+    new CopyWebpackPlugin([{from:'assets'}])
 
   ]
 
