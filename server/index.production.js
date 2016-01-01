@@ -8,26 +8,41 @@ import config from '../app/config/index';
  * Gzip compression module
  */
 import compress from 'compression';
+var useragent = require('express-useragent');
 
 let app = express();
-
-app.use(compress());
-app.use(express.static('static'));
-app.set('view engine','jade');
-app.set('views','./app/views');
-RouteHandler(app);
-
 // Redirect all HTTP traffic to HTTPS
 function ensureSecure(req, res, next){
-  if(req.headers["x-forwarded-proto"]){
-    // OK, continue
-    return next();
-  };
-  console.log(req.hostname,req.url);
-  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
+   // handle port numbers if you need non defaults
 };
 
-app.all('*', ensureSecure);
+
+app.use(compress());
+app.use(useragent.express());
+app.use(express.static('static'));
+app.use((req,res,next)=>{
+if(req.useragent.browser==='Chrome'){
+if(req.secure){
+    console.log("Secure within chrome ");
+     // OK, continue
+    return next();
+  }
+ else{ 
+  console.log("insecure within chrome "+req.hostname,req.url);
+  console.log("redirecting");
+ res.redirect('https://'+req.hostname+req.url);
+ }
+}else{
+  console.log('not chrome, hence next()');
+  next();
+}
+});
+app.set('view engine','jade');
+app.set('views','./app/views');
+
+
+
+RouteHandler(app);
 
 var privateKey  = fs.readFileSync(config.SSL_KEY, 'utf8');
 var certificate = fs.readFileSync(config.SSL_CERT, 'utf8');
