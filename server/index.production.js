@@ -18,7 +18,7 @@ RouteHandler(app);
 
 // Redirect all HTTP traffic to HTTPS
 function ensureSecure(req, res, next){
-  if(req.secure){
+  if(req.headers["x-forwarded-proto"]){
     // OK, continue
     return next();
   };
