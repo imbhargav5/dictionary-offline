@@ -31,7 +31,7 @@ module.exports = {
                 include: [path.resolve(__dirname, "app")]
            }, {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style','css?modules!postcss!sass')
+                loader: ExtractTextPlugin.extract('style','css?modules!autoprefixer!sass')
 
 
             }

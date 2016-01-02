@@ -61,6 +61,7 @@ gulp.task('watch',function(){
   nodemon({
     script: 'index.js',
     stdout: true,
+    ignore: ["app/client/**/*.js", "app/client/**/*.scss"] ,
     exec : 'babel-node --presets es2015,stage-3 --'
   }).on('readable', function() {
       console.log('watching');

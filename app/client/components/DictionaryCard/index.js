@@ -40,7 +40,7 @@ class Card extends React.Component{
 		let {definition, searchWord,loading} = this.props, 
 			view = null;
 		if(typeof searchWord === 'undefined' || searchWord.length ===0){
-			return <h3> Enter a word </h3>;
+			return <h3> Enter a word</h3>;
 		}
 		if(loading){
 			view = <h3>Fetching Defintion for {searchWord} </h3>
