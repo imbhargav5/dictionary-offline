@@ -9,13 +9,12 @@ import Root from '../client/containers/Root';
 
 
 import ApiRouteHandler from './api';
-var jade_file = 'index';
+var jade_file = 'dev';
 if(process.env.NODE_ENV === 'development'){
-
+    console.log(process.env.NODE_ENV);
 }else{
-	jade_file = 'index.production'
+	jade_file = 'production'
 }
-
 
 let RouteHandler = function(app){
 	
