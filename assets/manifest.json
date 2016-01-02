@@ -41,7 +41,6 @@
   }
  ],
  "display" :"standalone",
- "orientation": "landscape",
  "start_url":"/",
  "theme_color":"#536dfe",
  "background_color":"#3f51b5"
