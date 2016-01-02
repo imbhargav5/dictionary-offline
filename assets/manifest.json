@@ -1,6 +1,7 @@
 {
  "name": "Offline Dictionary built with MontanaFlynn API",
   "short_name" : "Offline Dictionary",
+  "lang" : "en-US",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
@@ -39,6 +40,9 @@
    "density": "4.0"
   }
  ],
+ "display" :"standalone",
+ "orientation": "landscape",
+ "start_url":"/",
  "theme_color":"#536dfe",
  "background_color":"#3f51b5"
 }
