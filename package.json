@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run devtest",
     "devtest": "rm -rf coverage && istanbul cover _mocha -- --require babel-core/register tests/**/*.js",
-    "serve": "NODE_ENV=development gulp watch",
+    "serve": "rm -rf static && NODE_ENV=development gulp watch",
     "staging": "NODE_ENV=staging gulp production ",
     "production": "NODE_ENV=production gulp production ",
     "dist": "rm -rf static && gulp build"

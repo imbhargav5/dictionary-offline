@@ -1,6 +1,6 @@
 require('serviceworker-cache-polyfill');
 
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'my-site-cache-v11';
 var urlsToCache = [
   '/',
   '/bundle.js',
@@ -21,7 +21,19 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-    console.log('activated');
+      var cacheWhitelist = [CACHE_NAME];
+
+      event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+          return Promise.all(
+            cacheNames.map(function(cacheName) {
+              if (cacheWhitelist.indexOf(cacheName) === -1) {
+                return caches.delete(cacheName);
+              }
+            })
+          );
+        })
+      );
 });
 self.addEventListener('fetch', function(event) {
   event.respondWith(

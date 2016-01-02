@@ -4,6 +4,8 @@ var assetsPath = path.join(__dirname, 'static');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 
+const ver = 3;
+
 const sassLoaders = [
   'style-loader',
   'css-loader?modules',
@@ -12,13 +14,13 @@ const sassLoaders = [
 ];
 module.exports = {
     entry :  {
-        devbundle : [   'webpack/hot/dev-server',
+        bundle : [   'webpack/hot/dev-server',
                     'webpack-hot-middleware/client',
                     './app/client/main.js'],
-        devvendor :['react','lodash','react-dom']
+        vendor :['react','lodash','react-dom']
     },
     output: {
-        filename: '[name].js', //
+        filename: '[name].js?'+ver, //
         path: assetsPath,
         publicPath: 'http://localhost:3000/'
     },
@@ -43,9 +45,9 @@ module.exports = {
     devtool : 'eval',
     
     plugins: [
-    new webpack.optimize.CommonsChunkPlugin('devvendor','devvendor.js'),
+    new webpack.optimize.CommonsChunkPlugin('vendor','vendor.js'),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("devstyle.css"),
+    new ExtractTextPlugin("style.css?"+ver),
     new CopyWebpackPlugin([{from:'assets'}])
   ]
 

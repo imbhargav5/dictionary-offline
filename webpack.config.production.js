@@ -4,6 +4,9 @@ var assetsPath = path.join(__dirname, 'static');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 
+const ver = 3;
+
+
 const sassLoaders = [
   'style-loader',
   'css-loader?modules',
@@ -17,7 +20,7 @@ module.exports = {
         vendor :['react','lodash','react-dom']
     },
     output: {
-        chunkFilename: '[name].js?v=[hash]',
+        chunkFilename: '[name].js?'+ver,
         filename: '[name].js', //
         path: assetsPath
     },
@@ -41,7 +44,7 @@ module.exports = {
     
     plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor','vendor.js'),
-    new ExtractTextPlugin("style.css"),
+    new ExtractTextPlugin("style.css?"+ver),
     new CopyWebpackPlugin([{from:'assets'}]),
     new webpack.optimize.UglifyJsPlugin()
   ]

@@ -20,13 +20,15 @@ html
 		meta(name='msapplication-TileColor', content='#ffffff')
 		meta(name='msapplication-TileImage', content='/ms-icon-144x144.png')
 		meta(name='theme-color', content='#ffffff')
-		link(href='/style.css', rel='stylesheet')
+		style(type='text/css')
+				include ../../static/style.css
 			
 				
 	body
 		#app
 			
-		script(type="application/javascript" src="/vendor.js")
-		script(type="application/javascript" src="/bundle.js")
-
-		
+		script(type="application/javascript")
+			include ../../static/vendor.js
+		script(type="application/javascript")
+			include ../../static/bundle.js
+			

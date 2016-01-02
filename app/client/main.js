@@ -2,11 +2,12 @@ import React from 'react';
 import Root from './containers/Root';
 import ReactDOM from 'react-dom';
 import PouchDB from 'pouchdb';
-let registerServiceWorker = require("serviceworker!./serviceworker/index.js");
 
 import {isClient} from '../utils/helpers';
 
 if(isClient()){
+	let registerServiceWorker = require("serviceworker!./serviceworker/index.js");
+
 	window.PouchDB = PouchDB;
 
 	if ('serviceWorker' in navigator) {
