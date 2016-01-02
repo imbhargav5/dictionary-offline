@@ -47,7 +47,8 @@ RouteHandler(app);
 
 var privateKey  = fs.readFileSync(config.SSL_KEY, 'utf8');
 var certificate = fs.readFileSync(config.SSL_CERT, 'utf8');
-var credentials = {key: privateKey, cert: certificate};
+var chainFile = fs.readFileSync(config.SSL_CHAIN,'utf8');
+var credentials = {key: privateKey, cert: certificate,chain:chainFile};
 var httpServer = http.createServer(app);
 httpServer.listen(3000);
 var httpsServer = https.createServer(credentials, app);
