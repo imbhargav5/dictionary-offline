@@ -4,7 +4,7 @@ var assetsPath = path.join(__dirname, 'static');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const ver = 3;
+const ver = 4;
 
 const sassLoaders = [
   'style-loader',
