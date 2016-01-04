@@ -1,7 +1,21 @@
 .root{
 	
 }
+.wordsContainer{
+	background:white;
+	padding:12px 18px;
+	box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+
+
+}
+.heading{
+	color : #333;
+	float:left;
+	margin-right:10px;
+	font-weight:bold;
+}
 .cachedWord{
-	margin:2px 8px;
+	margin:0 8px;
+	text-decoration:none;
 	text-transform:capitalize;
 }

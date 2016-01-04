@@ -1,6 +1,6 @@
 .root{
 	box-sizing:border-box;
-	padding:10px;
+	padding:0 10px 10px;
 	background : #3f51b5;
 }
 .input{
@@ -10,4 +10,6 @@
     width: 100%;
     -webkit-appearance: none;
     outline: none;
+    border :none;
+    box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
 }

@@ -13,7 +13,10 @@ class Appbar extends React.Component{
 	}
 	render(){
 		return <div className={styles.root}>
-				Offline MontanaFlynn Dictionary {this.props.children}
+				Offline Dictionary, Built with MontanaFlynnAPI {this.props.children}
+				<ul className={styles.social}>
+					<li className={styles.github}><a target="_blank" href="http://github.com/bhargav175/dictionary-offline">Source</a></li>
+				</ul>
 		</div>;
 	}
 };

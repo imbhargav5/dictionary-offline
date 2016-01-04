@@ -4,15 +4,18 @@
 .montana{
 	
 }
+.heading{
+	padding-left:16px;
+}
 .montana__list{
 		list-style : none;
 		margin:0;
 		padding:0;
 		li{
 			background:white;
-			margin:15px 0;
 			box-sizing:border-box;
-			padding: 12px 16px;
+			padding: 12px 18px;
+			box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
 		}
 	}
 .montana__attribution{

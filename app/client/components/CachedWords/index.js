@@ -18,7 +18,8 @@ export default function CachedWords(props){
 	}
 	let wordsUI = words.map((w,i)=><WordLink handleClick={onLinkClickHandler.bind(this,w)} key={i} word={w} />);
 	return <div className={styles.root}>
-		<h3>Cached Words </h3>
-		{wordsUI}
+		    <div className={styles.wordsContainer}>
+			<div className={styles.heading}>Cached Words </div>{wordsUI}
+			</div>
 	</div>;
 };

@@ -26,7 +26,7 @@ class Search extends React.Component{
 	render(){
 		return <div className={styles.root}>
 				<form onSubmit={this._onSubmit.bind(this)}>
-				<input className={styles.input} placeholder="Search" onChange={this._onChange.bind(this)} ref="searchWord" type="search" name="search-box" value={this.state.val} />
+				<input className={styles.input} placeholder="Enter a word to search , Press Enter to Fetch Definitions" onChange={this._onChange.bind(this)} ref="searchWord" type="search" name="search-box" value={this.state.val} />
 				</form>
 		</div>;
 	}
