@@ -1,4 +1,4 @@
-# express-learning [![Build Status](https://semaphoreci.com/api/v1/projects/4f600dbf-40c2-479c-b98b-f3114a3dcc31/647185/badge.svg)](https://semaphoreci.com/bhargav175/express-learning)
+# express-learning [![Build Status](https://travis-ci.org/bhargav175/dictionary-offline.svg)](https://travis-ci.org/bhargav175/dictionary-offline.svg)
 
 An offline dictionary app heavily inspired from Jake Archibald's [offline wiki app](https://github.com/jakearchibald/offline-wikipedia) and Pokedex.org. 
 
