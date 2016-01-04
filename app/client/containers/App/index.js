@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchDefinition, fetchAllWords} from '../../actions/search';
 import Appbar from '../../components/Appbar';
 import AppBody from '../../components/Body';
+import AppFooter from '../../components/Footer';
 import SearchButton from '../../components/Search';
 import CachedWords from '../../components/CachedWords';
 import DictionaryCard from '../../components/DictionaryCard';
@@ -43,6 +44,7 @@ class App extends React.Component{
 					<CachedWords {...wordsReducer} onLinkClickHandler={this.handleCachedWordClick.bind(this)} />
 					<DictionaryCard {...searchReducer}/>
 				</AppBody>
+				<AppFooter/>
 			</div>;
 	}
 };
