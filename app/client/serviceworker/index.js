@@ -1,6 +1,6 @@
 require('serviceworker-cache-polyfill');
 
-var CACHE_NAME = 'my-site-cache-v12';
+var CACHE_NAME = 'my-site-cache-v13';
 var urlsToCache = [
   '/',
   '/bundle.js',
